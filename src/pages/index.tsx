@@ -11,7 +11,7 @@ const Home: NextPage = () => {
     <div className='pb-10'></div>
     <div className=' flex justify-center items-center border-2 border-red-600 border-solid  p-10 overflow-auto'>
       <ul className='max-w-max max-h-96'>
-      {data?.Products.filter(({Title}) => Title.length > 0).map(({Title})=><li>{Title}</li> )}
+      {data?.Products.filter(({Title}) => Title.length > 0).map(({Title, MoonpigProductNo})=><li key={MoonpigProductNo}>{Title}</li> )}
       </ul>
    
     </div>
