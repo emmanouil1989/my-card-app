@@ -4,7 +4,7 @@
 
  - [x] trpc
  - [ ] responsive
- - [ ] find cards api
+ - [x] integrate cards api
  - [ ] implement cards page
  - [ ] Test cards page
  - [ ] acessability
