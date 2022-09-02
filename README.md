@@ -2,7 +2,7 @@
 
 ## ToDo
 
- - [ x ] trpc
+ - [x] trpc
  - [ ] responsive
  - [ ] find cards api
  - [ ] implement cards page
