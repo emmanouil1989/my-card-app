@@ -8,13 +8,13 @@ export default function Card() {
   if (isLoading || !isSuccess) return <div>Loading...</div>;
 
   return (
-    <ul className="grid grid-cols-6 gap-2 pr-8 pb-8 pl-8 mx-auto h-full overflow-auto ">
+    <ul className="grid grid-cols-[400px_400px_400px_400px] auto-rows-[400px] gap-2 pr-8 pb-8 pl-8 mx-auto h-full">
       {data.Products.map(({ ProductImage, Title, MoonpigProductNo }) => (
         <li
           key={MoonpigProductNo}
           className="h-full w-full  flex justify-center"
         >
-          <div className=" h-48 w-48 relative">
+          <div className=" h-full w-full relative">
             <Image
               src={ProductImage.Link.Href}
               alt={Title}
