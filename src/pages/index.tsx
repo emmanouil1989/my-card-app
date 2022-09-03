@@ -6,8 +6,8 @@ const Home: NextPage = () => {
 
   if (isLoading) return <div>Loading...</div>;
   return (
-    <main className="h-screen w-screen flex">
-      <div className=" flex items-center overflow-y-auto w-full h-full p-12">
+    <main className="h-screen w-screen flex pt-12 pb-12">
+      <div className=" flex justify-center overflow-y-auto w-full max-h-fit">
         <Card />
       </div>
     </main>
