@@ -8,9 +8,12 @@ export default function Card() {
   if (isLoading || !isSuccess) return <div>Loading...</div>;
 
   return (
-    <div className="grid grid-cols-6 gap-2 pr-8 pb-8 pl-8 mx-auto h-full overflow-auto ">
+    <ul className="grid grid-cols-6 gap-2 pr-8 pb-8 pl-8 mx-auto h-full overflow-auto ">
       {data.Products.map(({ ProductImage, Title, MoonpigProductNo }) => (
-        <div key={MoonpigProductNo} className="h-full w-full  flex justify-center">
+        <li
+          key={MoonpigProductNo}
+          className="h-full w-full  flex justify-center"
+        >
           <div className=" h-48 w-48 relative">
             <Image
               src={ProductImage.Link.Href}
@@ -19,8 +22,8 @@ export default function Card() {
               className="rounded"
             />
           </div>
-        </div>
+        </li>
       ))}
-    </div>
+    </ul>
   );
 }
