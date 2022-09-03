@@ -1,22 +1,17 @@
-import type { NextPage } from 'next'
-import { trpc } from '../utils/trpc'
-
+import Card from "@/components/Card";
+import type { NextPage } from "next";
+import { trpc } from "../utils/trpc";
 const Home: NextPage = () => {
+  const { data, isLoading } = trpc.useQuery(["card-search"]);
 
-  const {data, isLoading} = trpc.useQuery(["card-search"])
-
-  if(isLoading) return <div>Loading...</div>
+  if (isLoading) return <div>Loading...</div>;
   return (
-    <div className='h-screen w-screen flex justify-center items-center'>
-    <div className='pb-10'></div>
-    <div className=' flex justify-center items-center border-2 border-red-600 border-solid  p-10 overflow-auto'>
-      <ul className='max-w-max max-h-96'>
-      {data?.Products.filter(({Title}) => Title.length > 0).map(({Title, MoonpigProductNo})=><li key={MoonpigProductNo}>{Title}</li> )}
-      </ul>
-   
-    </div>
-    </div>
-  )
-}
+    <main className="h-screen w-screen flex">
+      <div className=" w-full p-4">
+        <Card />
+      </div>
+    </main>
+  );
+};
 
-export default Home
+export default Home;
