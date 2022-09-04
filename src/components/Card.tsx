@@ -8,7 +8,7 @@ export default function Card() {
   if (isLoading || !isSuccess) return <div>Loading...</div>;
 
   return (
-    <ul className="grid grid-cols-[300px_300px_300px_300px] auto-rows-[300px] gap-8  h-full">
+    <ul className="grid grid-cols-[300px_300px_300px_300px] lg:grid-cols-[200px_200px_200px] lg:auto-rows-[300px] sm:grid-cols-[300px] sm:grid-auto-rows[400px] md:grid-cols-[200px_200px] md:auto-rows-[300px] auto-rows-[400px] gap-8  h-full">
       {data.Products.map(({ ProductImage, Title, MoonpigProductNo }) => (
         <li
           key={MoonpigProductNo}
