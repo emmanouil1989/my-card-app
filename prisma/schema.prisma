@@ -1,0 +1,29 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Card {
+  id String @id @default(uuid())
+
+  title String @db.VarChar(255)
+
+  price Decimal @db.Decimal(10, 2)
+
+  Currency String @db.VarChar(1)
+
+  Description String @db.VarChar(255)
+
+  productId Int @db.Int
+
+  imageLink String @db.VarChar(255)
+
+  createdAt DateTime @default(now()) @db.Timestamp(6)
+}
