@@ -1,11 +1,11 @@
-## ToDo
+## Generic ToDo
 
 - [x] trpc
 - [ ] store cards data into db
 - [ ] set up prisma with planetScale
 - [x] integrate cards api
 
-## Card List Component
+## Card List Component Todo
 
 - [x] responsive for card list page
 - [x] implement cards page
