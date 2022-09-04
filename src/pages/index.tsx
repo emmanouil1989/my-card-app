@@ -1,6 +1,7 @@
 import Card from "@/components/Card";
 import type { NextPage } from "next";
 import { trpc } from "../utils/trpc";
+
 const Home: NextPage = () => {
   const { data, isLoading, isSuccess } = trpc.useQuery(["card-search"]);
 
