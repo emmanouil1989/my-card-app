@@ -1,15 +1,18 @@
-
-
 ## ToDo
 
- - [x] trpc
- - [ ] responsive
- - [x] integrate cards api
- - [ ] implement cards page
- - [ ] Test cards page
- - [ ] acessability
+- [x] trpc
 
-First, run the development server:
+- [x] integrate cards api
+
+## Card List Component
+
+- [x] responsive for card list page
+- [x] implement cards page
+- [ ] Test cards page
+- [ ] acessability
+- [ ] improve card list styles     
+     
+     First, run the development server:
 
 ```bash
 npm run dev
