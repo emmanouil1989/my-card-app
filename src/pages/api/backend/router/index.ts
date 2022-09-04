@@ -15,7 +15,7 @@ export const appRouter = trpc
 // export type definition of API
 export type AppRouter = typeof appRouter;
 
-type CardSearch = {
+export type CardSearch = {
     SearchId: string;
     NumberOfProducts: number;
     Start: number;
