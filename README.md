@@ -1,7 +1,8 @@
 ## ToDo
 
 - [x] trpc
-
+- [ ] store cards data into db
+- [ ] set up prisma with planetScale
 - [x] integrate cards api
 
 ## Card List Component
