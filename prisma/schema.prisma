@@ -3,11 +3,13 @@
 
 generator client {
   provider = "prisma-client-js"
+  previewFeatures = ["referentialIntegrity"]
 }
 
 datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
+  referentialIntegrity = "prisma"
 }
 
 model Card {
@@ -15,13 +17,13 @@ model Card {
 
   title String @db.VarChar(255)
 
-  price Decimal @db.Decimal(10, 2)
+  price String @db.VarChar(255)
 
-  Currency String @db.VarChar(1)
+  currency String @db.VarChar(255)
 
-  Description String @db.VarChar(255)
+  description String @db.Text
 
-  productId Int @db.Int
+  productId String @db.VarChar(255)
 
   imageLink String @db.VarChar(255)
 
