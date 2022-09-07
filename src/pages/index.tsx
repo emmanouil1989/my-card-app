@@ -5,11 +5,14 @@ import { trpc } from "../utils/trpc";
 const Home: NextPage = () => {
   const { data, isLoading, isSuccess } = trpc.useQuery(["card-search"]);
 
-  if (isLoading || !isSuccess ) return <div>Loading...</div>;
+  if (isLoading || !isSuccess) return <div>Loading...</div>;
+
+  console.log("data", data);
+
   return (
     <main className="h-screen w-screen flex pt-12 pb-12">
       <div className=" flex justify-center overflow-y-auto w-full max-h-fit">
-        <Card data={data}  />
+        <Card data={data.cards}  />
       </div>
     </main>
   );
