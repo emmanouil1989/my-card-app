@@ -3,5 +3,9 @@
 @tailwind utilities;
 
 body {
- @apply text-white bg-gray-800 overflow-hidden
+ @apply text-white bg-gray-800 overflow-hidden box-content
+}
+
+.text-reverse {
+ @apply text-black
 }
