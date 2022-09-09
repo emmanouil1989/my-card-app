@@ -20,7 +20,6 @@ export default withTRPC<AppRouter>({
      */
 
     const url = `${getBaseUrl()}/api/trpc`;
-    console.log("VERCEL URL", url);
     return {
       url,
       /**
