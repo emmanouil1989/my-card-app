@@ -18,7 +18,7 @@ const Home: NextPage = () => {
             className={"w-56 h-56"}
           />
         ) : (
-          <div className="m-w-[1200px]">
+          <div>
             <div className="flex justify-between items-center py-8 w-full">
               <h2>CardPool</h2>
               <div className="w-8/12 h-10 relative">

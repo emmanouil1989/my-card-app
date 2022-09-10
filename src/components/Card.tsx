@@ -7,7 +7,7 @@ type CardProps = PropsWithChildren<{
 }>;
 export default function Card({ data }: CardProps) {
   return (
-    <div className="flex ">
+    <div className="flex h-4/5 overflow-y-auto pr-4">
     <ul className="grid xl:grid-cols-[300px_300px_300px_300px] lg:grid-cols-[200px_200px_200px] md:grid-cols-[200px_200px] grid-cols-[300px]  xl:auto-rows-[400px] lg:auto-rows-[300px]  md:auto-rows-[300px] auto-rows-[400px]  gap-8  h-full ">
       {data.map(({ productId, imageLink, title }) => (
         <li key={productId} className="h-full w-full  flex justify-center">
