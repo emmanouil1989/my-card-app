@@ -10,7 +10,7 @@ const Home: NextPage = () => {
 
   return (
     <main className=" h-screen w-screen flex flex-col justify-between items-center relative">
-      <div className=" flex flex-col justify-center  w-full  items-center ">
+      <div className={`flex flex-col justify-center ${isLoadingOrError ? 'h-full' :  ''}  w-full  items-center `}>
         {isLoadingOrError ? (
           <img
             src={"/ball-triangle.svg"}
