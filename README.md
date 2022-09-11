@@ -11,7 +11,7 @@
 - [x] responsive for card list page
 - [x] implement cards page
 - [ ] Test cards page
-- [ ] acessability
+- [ ] accessibility
 - [x] improve card list styles     
      
      First, run the development server:
