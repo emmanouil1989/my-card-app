@@ -20,10 +20,13 @@ const Home: NextPage = () => {
         ) : (
           <div>
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center py-8 w-full">
-              <h2>CardPool</h2>
+              <div className="flex items-center h-10 sm:w-4/12 justify-center">
+              <h2 className="font-mono text-5xl font-bold">CardPool</h2>
+                </div>
+              
               <div className="sm:w-8/12 w-[19rem] h-10 relative py-4 sm:py-0 ">
                 <input
-                  className=" rounded-3xl p-4 border-solid  bg-slate-600 w-full h-11 outline-none border-2 border-gray-300 font-bold placeholder:text-white placeholder:font-bold"
+                  className=" rounded-3xl p-4 border-solid  bg-slate-600 w-full h-11 outline-none border-2 border-gray-300 font-bold placeholder:text-white placeholder:text-lg placeholder:font-bold"
                   placeholder="Search for cards..."
                 />
                 <svg
