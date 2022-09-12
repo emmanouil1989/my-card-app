@@ -2,17 +2,7 @@ import React from "react";
 import Home from "../pages/index";
 import { render, screen } from "@testing-library/react";
 import { trpc } from "../utils/trpc";
-import { Card } from "@prisma/client";
-import { TRPCClientErrorLike } from "@trpc/client";
-import { DefaultErrorShape } from "@trpc/server";
-import { Procedure } from "@trpc/server/dist/declarations/src/internals/procedure";
-import { Router } from "@trpc/server/dist/declarations/src/router";
 import "@testing-library/jest-dom";
-import {
-  RefetchOptions,
-  RefetchQueryFilters,
-  QueryObserverResult,
-} from "react-query";
 import {
   getReactQueryIsLoading,
   getReactQuerySuccessMockAnswer,
