@@ -5,6 +5,7 @@
 - [x] set up prisma with planetScale
 - [x] integrate cards api
 - [x] add github actions and run tests on push
+- [ ] add pa11yci test to github actions
 
 ## Card List Component Todo
 
