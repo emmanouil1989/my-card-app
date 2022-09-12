@@ -21,12 +21,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - uses: Adzz/jest_test_action@v1.0.0
         with:
-          node-version: 16.x
-      - uses: onichandame/node-test-action@master
-      - run: npm install --include=dev
-      - run: npm test
+          command: test --watchAll=false
         env:
           VERCEL_URL: ${{ needs.wait_for_vercel.outputs.preview_url }}
           VERCEL_ENV: preview
