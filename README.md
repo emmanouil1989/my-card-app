@@ -4,7 +4,7 @@
 - [x] store cards data into db
 - [x] set up prisma with planetScale
 - [x] integrate cards api
-- [ ] add github actions and run tests on deployments
+- [x] add github actions and run tests on push
 
 ## Card List Component Todo
 
