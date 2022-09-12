@@ -4,14 +4,15 @@
 - [x] store cards data into db
 - [x] set up prisma with planetScale
 - [x] integrate cards api
+- [ ] add github actions and run tests on deployments
 
 ## Card List Component Todo
 
 - [x] responsive for card list page
 - [x] implement cards page
 - [ ] Test cards page
-- [ ] acessability
-- [ ] improve card list styles     
+- [ ] accessibility
+- [x] improve card list styles     
      
      First, run the development server:
 
