@@ -2,6 +2,7 @@ import {
     RefetchOptions,
     RefetchQueryFilters,
     QueryObserverResult,
+    QueryObserverSuccessResult,
   } from "react-query";
   import { TRPCClientErrorLike } from "@trpc/client";
   import { DefaultErrorShape } from "@trpc/server";
@@ -10,7 +11,7 @@ import {
 import { Card } from "@prisma/client";
 
 
-export const getReactQuerySuccessMockAnswer = <Data>(data: Data) =>{
+export const getReactQuerySuccessMockAnswer = <Data>(data: Data) : QueryObserverSuccessResult =>{
 
     return {
         data: data,
