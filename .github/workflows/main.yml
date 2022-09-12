@@ -3,27 +3,26 @@ name: ci
 on: [push]
 
 jobs:
-  wait_for_vercel:
-    name: Wait for vercel
-    runs-on: ubuntu-latest
-    outputs:
-      preview_url: ${{ steps.waitForVercelPreviewDeployment.outputs.url }}
-    steps:
-      - name: Wait for Vercel preview deployment to be ready
-        uses: patrickedqvist/wait-for-vercel-preview@main
-        id: waitForVercelPreviewDeployment
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          max_timeout: 120
+  # wait_for_vercel:
+  #   name: Wait for vercel
+  #   runs-on: ubuntu-latest
+  #   outputs:
+  #     preview_url: ${{ steps.waitForVercelPreviewDeployment.outputs.url }}
+  #   steps:
+  #     - name: Wait for Vercel preview deployment to be ready
+  #       uses: patrickedqvist/wait-for-vercel-preview@main
+  #       id: waitForVercelPreviewDeployment
+  #       with:
+  #         token: ${{ secrets.GITHUB_TOKEN }}
+  #         max_timeout: 120
   tests:
     name: Run tests
-    needs: wait_for_vercel
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: Adzz/jest_test_action@v2.0.0
         with:
           command: test --watchAll=false
-        env:
-          VERCEL_URL: ${{ needs.wait_for_vercel.outputs.preview_url }}
-          VERCEL_ENV: preview
+        # env:
+        #   VERCEL_URL: ${{ needs.wait_for_vercel.outputs.preview_url }}
+        #   VERCEL_ENV: preview
