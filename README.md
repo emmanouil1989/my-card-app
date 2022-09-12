@@ -10,7 +10,7 @@
 
 - [x] responsive for card list page
 - [x] implement cards page
-- [ ] Test cards page
+- [x] Test cards page
 - [ ] accessibility
 - [x] improve card list styles     
      
