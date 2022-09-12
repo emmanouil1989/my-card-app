@@ -45,13 +45,13 @@ test("Load main page", async () => {
     },
   ];
 
-  jest
+  const mockFunciton = jest
     .spyOn(trpc, "useQuery")
     .mockReturnValue(getReactQuerySuccessMockAnswer({ cards }));
 
   render(<Home />);
   const image = screen.getByAltText(cards[0].title);
-
+  expect(mockFunciton).toHaveBeenCalledTimes(1);
   expect(trpc.useQuery).toBeCalledWith(["card-search"]);
   expect(image).toBeInTheDocument();
 });
