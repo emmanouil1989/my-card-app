@@ -13,7 +13,10 @@ import {
   RefetchQueryFilters,
   QueryObserverResult,
 } from "react-query";
-import { getReactQuerySuccessMockAnswer } from "@/tests/utils";
+import {
+  getReactQueryIsLoading,
+  getReactQuerySuccessMockAnswer,
+} from "@/tests/utils";
 
 test("Load main page", async () => {
   const cards = [
@@ -42,11 +45,21 @@ test("Load main page", async () => {
     },
   ];
 
-  jest.spyOn(trpc, "useQuery").mockReturnValue(getReactQuerySuccessMockAnswer({cards}));
+  jest
+    .spyOn(trpc, "useQuery")
+    .mockReturnValue(getReactQuerySuccessMockAnswer({ cards }));
 
   render(<Home />);
   const image = screen.getByAltText(cards[0].title);
 
   expect(trpc.useQuery).toBeCalledWith(["card-search"]);
+  expect(image).toBeInTheDocument();
+});
+
+test("is Loading", async () => {
+  jest.spyOn(trpc, "useQuery").mockReturnValue(getReactQueryIsLoading());
+  render(<Home />);
+
+  const image = screen.getByAltText("loading indicator");
   expect(image).toBeInTheDocument();
 });
