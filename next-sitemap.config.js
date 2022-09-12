@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
     siteUrl: process.env.VERCEL_URL || 'http:localhost:3000',
-    generateRobotsTxt: false, // (optional)
+    generateRobotsTxt: true, // (optional)
     // ...other options
   }
