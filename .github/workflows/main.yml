@@ -2,19 +2,19 @@ name: ci
 
 on: [push]
 
-jobs:
-  wait_for_vercel:
-    name: Wait for vercel
-    runs-on: ubuntu-latest
-    outputs:
-      preview_url: ${{ steps.waitForVercelPreviewDeployment.outputs.url }}
-    steps:
-      - name: Wait for Vercel preview deployment to be ready
-        uses: patrickedqvist/wait-for-vercel-preview@main
-        id: waitForVercelPreviewDeployment
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          max_timeout: 120
+# jobs:
+#   wait_for_vercel:
+#     name: Wait for vercel
+#     runs-on: ubuntu-latest
+#     outputs:
+#       preview_url: ${{ steps.waitForVercelPreviewDeployment.outputs.url }}
+#     steps:
+#       - name: Wait for Vercel preview deployment to be ready
+#         uses: patrickedqvist/wait-for-vercel-preview@main
+#         id: waitForVercelPreviewDeployment
+#         with:
+#           token: ${{ secrets.GITHUB_TOKEN }}
+#           max_timeout: 120
   tests:
     name: Run tests
     runs-on: ubuntu-latest
@@ -26,14 +26,14 @@ jobs:
         env:
           VERCEL_URL: ${{ needs.wait_for_vercel.outputs.preview_url }}
           VERCEL_ENV: preview
-  pa11y:
-    name: Accessibility tests
-    needs: wait_for_vercel
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 14.x
-      - run: npm install -g pa11y-ci
-      - run: pa11y-ci --sitemap ${{ needs.wait_for_vercel.outputs.preview_url }}/sitemap-0.xml
+  # pa11y:
+  #   name: Accessibility tests
+  #   needs: wait_for_vercel
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - uses: actions/setup-node@v1
+  #       with:
+  #         node-version: 14.x
+  #     - run: npm install -g pa11y-ci
+  #     - run: pa11y-ci --sitemap ${{ needs.wait_for_vercel.outputs.preview_url }}/sitemap-0.xml
