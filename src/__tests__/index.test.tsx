@@ -6,7 +6,7 @@ import "@testing-library/jest-dom";
 import {
   getReactQueryIsLoading,
   getReactQuerySuccessMockAnswer,
-} from "@/tests/utils";
+} from "@/test/utils";
 
 test("Load main page", async () => {
   const cards = [
