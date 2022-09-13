@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "postbuild": "ts-node scripts/generate-sitemap.ts",
+    "postbuild": "node scripts/generate-sitemap.mjs",
     "start": "next start",
     "lint": "next lint",
     "test": "jest --watch",
