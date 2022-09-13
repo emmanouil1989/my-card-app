@@ -5,17 +5,22 @@
 - [x] set up prisma with planetScale
 - [x] integrate cards api
 - [x] add github actions and run tests on push
-- [ ] add pa11yci test to github actions
 
 ## Card List Component Todo
 
-- [x] responsive for card list page
+- [x] responsive for cards list page
 - [x] implement cards page
 - [x] Test cards page
 - [x] accessibility
 - [x] improve card list styles     
+
+## Card Details Component Todo
+- [ ] implement card details page
+- [ ] responsive for card Details page
+- [ ] Test card Details page
+- [ ] Accessiblity
      
-     First, run the development server:
+First, run the development server:
 
 ```bash
 npm run dev
