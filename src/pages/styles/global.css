@@ -3,16 +3,17 @@
 @tailwind utilities;
 
 body {
- @apply text-white bg-gray-800 overflow-hidden;
+ @apply text-white bg-gray-800 overflow-y-auto overflow-x-hidden h-full relative;
 }
 html {
-    @apply h-full box-border;
+    @apply h-full box-border relative;
   }
 
   #__next {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    position: relative;
   }
 
 
