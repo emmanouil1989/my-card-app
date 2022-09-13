@@ -13,7 +13,7 @@
 - [x] Test cards page
 - [x] accessibility
 - [x] improve card list styles   
-- [ ] bug with list  
+- [x] bug with list  
 
 ## Card Details Component Todo
 - [ ] implement card details page

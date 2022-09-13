@@ -23,7 +23,7 @@ model Card {
 
   description String @db.Text
 
-  productId String @db.VarChar(255)
+  productId String @db.VarChar(255) @unique
 
   imageLink String @db.VarChar(255)
 

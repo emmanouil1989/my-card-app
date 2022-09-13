@@ -1,4 +1,4 @@
-import Card from "@/components/Card";
+import Card from "@/components/CardList";
 import type { NextPage } from "next";
 import Head from "next/head";
 import { trpc } from "../utils/trpc";

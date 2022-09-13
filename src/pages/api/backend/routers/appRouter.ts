@@ -1,7 +1,10 @@
 import {prisma} from '../../../../server/utils/prisma'
 import * as trpc from '@trpc/server';
-export const appRouter = trpc
-  .router()
+import { cardDetailsRouter } from './cardDetailsRouter';
+import { createRouter } from '../createRouter';
+
+
+export const appRouter = createRouter()
   .query('card-search', {
 
    async resolve() {
@@ -11,6 +14,9 @@ export const appRouter = trpc
        cards: response,
       };
     },
-  });
+  }).merge('detail.', cardDetailsRouter);;
+  
 // export type definition of API
+
+
 export type AppRouter = typeof appRouter;
