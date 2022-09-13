@@ -12,12 +12,18 @@
 - [x] implement cards page
 - [x] Test cards page
 - [x] accessibility
-- [x] improve card list styles     
+- [x] improve card list styles   
+- [ ] bug with list  
 
 ## Card Details Component Todo
 - [ ] implement card details page
 - [ ] responsive for card Details page
 - [ ] Test card Details page
+- [ ] Accessiblity
+
+## Add search feature to main page
+- [ ] implement search 
+- [ ] test search function
 - [ ] Accessiblity
      
 First, run the development server:
