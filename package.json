@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "postbuild": "node scripts/generate-sitemap.mjs",
+    "postbuild": "next-sitemap",
     "start": "next start",
     "lint": "next lint",
     "test": "jest --watch",
@@ -22,6 +22,7 @@
     "axios": "^0.27.2",
     "cors": "^2.8.5",
     "next": "12.2.5",
+    "next-sitemap": "^3.1.22",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-query": "3",
