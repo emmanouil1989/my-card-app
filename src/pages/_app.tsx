@@ -2,9 +2,14 @@ import type { AppProps } from "next/app";
 import "./styles/global.css";
 import { withTRPC } from "@trpc/next";
 import type { AppRouter } from "./api/backend/routers/appRouter";
+import Layout from "@/components/Layout";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
+  return (
+    <Layout>
+      <Component {...pageProps} />
+    </Layout>
+  );
 }
 function getBaseUrl() {
   if (process.browser) return ""; // Browser should use current path

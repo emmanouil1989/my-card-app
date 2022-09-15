@@ -14,7 +14,7 @@ const Home: NextPage = () => {
         <title>Cards Pool App</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <main className=" h-screen w-screen flex flex-col justify-between items-center relative">
+      <>
         <div
           className={`flex flex-col justify-center ${
             isLoadingOrError ? "h-full" : ""
@@ -58,7 +58,7 @@ const Home: NextPage = () => {
             </div>
           )}
         </div>
-      </main>
+      </>
     </>
   );
 };
