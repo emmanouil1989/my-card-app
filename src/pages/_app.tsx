@@ -3,14 +3,28 @@ import "./styles/global.css";
 import { withTRPC } from "@trpc/next";
 import type { AppRouter } from "./api/backend/routers/appRouter";
 import Layout from "@/components/Layout";
+import { NextComponentType, NextPage, NextPageContext } from "next";
+import { NextRouter } from "next/router";
+import { ReactElement, ReactNode } from "react";
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
-  );
+export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
+  getLayout?: (page: ReactElement) => ReactNode;
+};
+
+type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout;
+};
+function MyApp({ Component, pageProps }: AppPropsWithLayout) {
+  const getLayout = Component.getLayout ?? ((page) => <Layout>{page}</Layout>);
+
+  return getLayout(<Component {...pageProps} />);
 }
+
+const getPageLayout = (getLayout?: (page: ReactElement) => ReactNode) => {
+  if (getLayout) return getLayout;
+
+  return <Layout />;
+};
 function getBaseUrl() {
   if (process.browser) return ""; // Browser should use current path
   if (process.env.VERCEL_URL) return `https://${process.env.VERCEL_URL}`; // SSR should use vercel url
