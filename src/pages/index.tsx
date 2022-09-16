@@ -1,4 +1,5 @@
 import Card from "@/components/CardList";
+import LoadingIndicator from "@/components/LoadingIndicator";
 import type { NextPage } from "next";
 import Head from "next/head";
 import { trpc } from "../utils/trpc";
@@ -21,11 +22,7 @@ const Home: NextPage = () => {
           }  w-full  items-center `}
         >
           {isLoadingOrError ? (
-            <img
-              src={"/ball-triangle.svg"}
-              alt={"loading indicator"}
-              className={"w-56 h-56"}
-            />
+            <LoadingIndicator />
           ) : (
             <div>
               <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center py-8 w-full">
