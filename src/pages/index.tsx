@@ -4,7 +4,7 @@ import Head from "next/head";
 import { trpc } from "../utils/trpc";
 
 const Home: NextPage = () => {
-  const { data, isLoading, isSuccess } = trpc.useQuery(["card-search"]);
+  const { data, isLoading, isSuccess } = trpc.useQuery(["search.cards-search"]);
 
   const isLoadingOrError = isLoading || !isSuccess;
 
