@@ -16,7 +16,7 @@ export default function CardDetails() {
 
   return (
     <div
-      className={`flex flex-col sm:flex-row justify-center h-full w-full  items-center pt-10 sm:pt-0`}
+      className={`flex flex-col sm:flex-row justify-center h-full w-full  items-center p-8 sm:pt-0`}
     >
       {isLoading || !isSuccess ? (
         <LoadingIndicator />
