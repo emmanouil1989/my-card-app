@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useEffect, useMemo } from "react";
 import { trpc } from "../utils/trpc";
 import Image from "next/image";
 import LoadingIndicator from "./LoadingIndicator";
@@ -31,10 +31,11 @@ export default function CardDetails() {
           </div>
           <div className="py-4" />
           <div className="flex flex-col p-4 sm:w-96">
-            <h1 className="text-2xl font-bold pb-4 leading-tight">{data.card.title}</h1>
-            <p className="text-lg leading-tight">
-              {data.card.description.replace(/(<([^>]+)>)/gi, "")}
-            </p>
+            <h1 className="text-2xl font-bold pb-4 leading-tight">
+              {data.card.title}
+            </h1>
+            <Description description={data.card.description} />
+            <DescriptionMobile description={data.card.description} />
             <button className="bg-yellow-500 text-white p-2 rounded-lg mt-4 font-bold text-lg">
               {data.card.price}
               {data.card.currency} Buy Now
@@ -45,3 +46,60 @@ export default function CardDetails() {
     </div>
   );
 }
+
+type DescriptionMobileScreens = {
+  description: string;
+};
+const DescriptionMobile = ({ description }: DescriptionMobileScreens) => {
+  const [showMore, setShowMore] = React.useState(false);
+  const ref = React.useRef<HTMLParagraphElement>(null);
+  const isClamped = useElementClamped(ref);
+  const showMoreText = useMemo(() => {
+    if (showMore) {
+      return (
+        <span className=" font-bold text-lg">
+          <button onClick={() => setShowMore(false)}>Show less</button>
+        </span>
+      );
+    } else {
+      return (
+        <span className="font-bold text-lg">
+          <button onClick={() => setShowMore(true)}>Show More</button>
+        </span>
+      );
+    }
+  }, [showMore, setShowMore]);
+
+  return (
+    <div className="sm:hidden flex flex-col">
+      <p
+        className={`text-lg leading-tight ${showMore ? "" : "line-clamp-4"}`}
+        ref={ref}
+      >
+        {description.replace(/(<([^>]+)>)/gi, "")}
+      </p>
+      {isClamped && showMoreText}
+    </div>
+  );
+};
+
+const useElementClamped = (ref: React.RefObject<HTMLElement>) => {
+  let [isClamped, setIsClamped] = React.useState(false);
+
+  useEffect(() => {
+    if (ref.current === null) return;
+    setIsClamped(ref.current.scrollHeight > ref.current.clientHeight + 1);
+  }, [ref]);
+
+  return isClamped;
+};
+
+const Description = ({ description }: DescriptionMobileScreens) => {
+  return (
+    <div className="hidden sm:flex">
+      <p className={`text-lg leading-tight`}>
+        {description.replace(/(<([^>]+)>)/gi, "")}
+      </p>
+    </div>
+  );
+};

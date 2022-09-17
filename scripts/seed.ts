@@ -60,8 +60,6 @@ export const fillDB = async () => {
        const creation = await prisma.card.createMany({
             data: mappedData
        });
-    
-       console.log(creation, "creation");
     }catch(e){
         console.log(e, "error");
     }
