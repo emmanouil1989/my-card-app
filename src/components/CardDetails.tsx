@@ -16,15 +16,13 @@ export default function CardDetails() {
 
   return (
     <div
-      className={`flex flex-col sm:flex-row ${
-        isLoading ? "justify-center" : "justify-start"
-      } h-full w-full  items-center pt-10 sm:pt-0`}
+      className={`flex flex-col sm:flex-row justify-center h-full w-full  items-center pt-10 sm:pt-0`}
     >
       {isLoading || !isSuccess ? (
         <LoadingIndicator />
       ) : (
         <>
-          <div className="relative shadow-lg shadow-yellow-100 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 aspect-w-1 aspect-h-1 overflow-hidden rounded-lg  xl:aspect-w-7 xl:aspect-h-8 w-[400px] h-[400px]">
+          <div className="relative shadow-lg  shadow-yellow-100 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 aspect-w-1 aspect-h-1 overflow-hidden rounded-lg  xl:aspect-w-7 xl:aspect-h-8 w-[400px] h-[400px]">
             <Image
               src={data.card.imageLink}
               alt={data.card.title}
