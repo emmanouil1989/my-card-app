@@ -22,7 +22,7 @@ export default function CardDetails() {
         <LoadingIndicator />
       ) : (
         <>
-          <div className="relative shadow-lg  shadow-yellow-100 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 aspect-w-1 aspect-h-1 overflow-hidden rounded-lg  xl:aspect-w-7 xl:aspect-h-8 w-[400px] h-[400px]">
+          <div className="relative shadow-lg mx-12  shadow-yellow-100 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 aspect-w-1 aspect-h-1 overflow-hidden rounded-lg  xl:aspect-w-7 xl:aspect-h-8 w-[400px] h-[400px] sm:w-[500px] sm:h-[600px]">
             <Image
               src={data.card.imageLink}
               alt={data.card.title}
@@ -30,7 +30,7 @@ export default function CardDetails() {
             />
           </div>
           <div className="py-4" />
-          <div className="flex flex-col p-4">
+          <div className="flex flex-col p-4 w-96">
             <h1 className="text-2xl font-bold pb-4">{data.card.title}</h1>
             <p className="text-lg">
               {data.card.description.replace(/(<([^>]+)>)/gi, "")}
