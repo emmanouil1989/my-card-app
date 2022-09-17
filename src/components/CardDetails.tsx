@@ -30,7 +30,7 @@ export default function CardDetails() {
             />
           </div>
           <div className="py-4" />
-          <div className="flex flex-col p-4 w-96">
+          <div className="flex flex-col p-4 sm:w-96">
             <h1 className="text-2xl font-bold pb-4">{data.card.title}</h1>
             <p className="text-lg">
               {data.card.description.replace(/(<([^>]+)>)/gi, "")}
