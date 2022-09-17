@@ -16,8 +16,8 @@
 - [x] bug with list  
 
 ## Card Details Component Todo
-- [ ] implement card details page
-- [ ] responsive for card Details page
+- [x] implement card details page
+- [x] responsive for card Details page
 - [ ] Test card Details page
 - [ ] Accessiblity
 
