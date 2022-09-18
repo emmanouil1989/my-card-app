@@ -73,7 +73,7 @@ const DescriptionMobile = ({ description }: DescriptionMobileScreens) => {
   return (
     <div className="sm:hidden flex flex-col">
       <p
-        className={`text-lg leading-tight ${showMore ? "" : "line-clamp-4"}`}
+        className={`text-lg leading-tight ${showMore ? "" : "line-clamp-3"}`}
         ref={ref}
       >
         {description.replace(/(<([^>]+)>)/gi, "")}
