@@ -13,7 +13,6 @@ jobs:
         with:
           node-version: "12"
 
-
       # Speed up subsequent runs with caching
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
