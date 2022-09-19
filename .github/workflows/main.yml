@@ -3,22 +3,35 @@ name: ci
 on: [push]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  test:
+5    runs-on: ubuntu-latest
+6    steps:
+7      - uses: actions/checkout@v2
+8      - name: Setup Node.js
+9        uses: actions/setup-node@v1
+10        with:
+11          node-version: "16"
+12
+13      # Speed up subsequent runs with caching
+14      - name: Get yarn cache directory path
+          id: yarn-cache-dir-path
+          run: echo "::set-output name=dir::$(yarn cache dir)"
 
-    strategy:
-      matrix:
-        node-version: [16.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
-    steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: "yarn"
-      - run: yarn test
+        - uses: actions/cache@v3
+            id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+            with:
+              path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+              key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+              restore-keys: |
+      ${{ runner.os }}-yarn-
+26
+27      # Install required deps for action
+28      - name: Install Dependencies
+29        run: yarn
+30
+31      # Finally, run our tests
+32      - name: Run the tests
+33        run: yarn test
 #   wait_for_vercel:
 #     name: Wait for vercel
 #     runs-on: ubuntu-latest
