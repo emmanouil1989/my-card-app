@@ -15,17 +15,44 @@ jobs:
 #         with:
 #           token: ${{ secrets.GITHUB_TOKEN }}
 #           max_timeout: 120
-  tests:
-    name: Run tests
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: Adzz/jest_test_action@v2.0.0
+      - name: Test using Node.js
+        uses: actions/setup-node@v1
         with:
-          command: test --watchAll=false
-        env:
-          VERCEL_URL: ${{ needs.wait_for_vercel.outputs.preview_url }}
-          VERCEL_ENV: preview
+          node-version: '16'
+      - run: yarn install
+      - run: yarn test:ci
+
+      - name: Tests ✅
+        if: ${{ success() }}
+        run: |
+          curl --request POST \
+          --url https://api.github.com/repos/${{ github.repository }}/statuses/${{ github.sha }} \
+          --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
+          --header 'content-type: application/json' \
+          --data '{
+            "context": "tests",
+            "state": "success",
+            "description": "Tests passed",
+            "target_url": "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          }'
+
+      - name: Tests 🚨
+        if: ${{ failure() }}
+        run: |
+          curl --request POST \
+          --url https://api.github.com/repos/${{ github.repository }}/statuses/${{ github.sha }} \
+          --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
+          --header 'content-type: application/json' \
+          --data '{
+            "context": "tests",
+            "state": "failure",
+            "description": "Tests failed",
+            "target_url": "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          }'
   # pa11y:
   #   name: Accessibility tests
   #   needs: wait_for_vercel
