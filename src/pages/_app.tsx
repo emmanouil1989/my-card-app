@@ -1,18 +1,13 @@
 import type { AppProps } from "next/app";
-import "./styles/global.css";
+import "../styles/global.css";
 import { withTRPC } from "@trpc/next";
 import type { AppRouter } from "./api/backend/routers/appRouter";
 import Layout from "@/components/Layout";
-import { NextComponentType, NextPage, NextPageContext } from "next";
-import { NextRouter } from "next/router";
+import {NextPage } from "next";
 import {
-  JSXElementConstructor,
   ReactElement,
-  ReactFragment,
   ReactNode,
-  ReactPortal,
 } from "react";
-import { TypeOf } from "zod";
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode;
