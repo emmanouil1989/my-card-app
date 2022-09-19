@@ -1,3 +1,13 @@
+This project use Mock card posts data. Tech stack: 
+* NextJs
+* Prisma
+* Trpc
+* Tailwind
+* pa11y-ci for accessability checks
+* Jest
+* React Testing Library
+* Configured Github Actions
+
 ## Generic ToDo
 
 - [x] trpc
@@ -18,8 +28,8 @@
 ## Card Details Component Todo
 - [x] implement card details page
 - [x] responsive for card Details page
-- [ ] Test card Details page
-- [ ] Accessiblity
+- [x] Test card Details page
+- [x] Accessiblity
 
 ## Add search feature to main page
 - [ ] implement search 
