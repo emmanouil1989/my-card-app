@@ -1,7 +1,7 @@
 import {prisma} from '../../../../server/utils/prisma'
 import * as trpc from '@trpc/server';
 import {z} from 'zod';
-import { createRouter } from '../createRouter';
+import { createRouter } from "../context";
 
 
 export const cardDetailsRouter = createRouter().query('card-details', {

@@ -1,4 +1,4 @@
-import { createRouter } from "../createRouter";
+import { createRouter } from "../context";
 import {prisma} from '../../../../server/utils/prisma'
 
 const cardsSearchRouter = createRouter().query('cards-search', {

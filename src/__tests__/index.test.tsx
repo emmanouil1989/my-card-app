@@ -42,7 +42,7 @@ test("Load main page", async () => {
   render(<Home />);
   const image = screen.getByAltText(cards[0].title);
   expect(mockFunciton).toHaveBeenCalledTimes(1);
-  expect(trpc.useQuery).toBeCalledWith(["card-search"]);
+  expect(trpc.useQuery).toBeCalledWith(["search.cards-search"]);
   expect(image).toBeInTheDocument();
 });
 
