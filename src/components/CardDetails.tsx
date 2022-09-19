@@ -36,7 +36,7 @@ export default function CardDetails() {
             </h1>
             <Description description={data.card.description} />
             <DescriptionMobile description={data.card.description} />
-            <button className="bg-yellow-700 text-white p-2 rounded-lg mt-4 font-bold text-lg">
+            <button className="bg-cyan-700 text-white p-2 rounded-lg mt-4 font-bold text-lg">
               {data.card.price}
               {data.card.currency} Buy Now
             </button>
