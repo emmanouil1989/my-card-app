@@ -8,6 +8,8 @@ This project use Mock card posts data. Tech stack:
 * React Testing Library
 * Configured Github Actions
 
+To run this project locally you will need a MySql database. I use planetscale free service for this. To feed your database with mock card-post data run `npm run seed` command.
+
 ## Generic ToDo
 
 - [x] trpc
