@@ -34,9 +34,9 @@ To run this project locally you will need a MySql database. I use planetscale fr
 - [x] Accessiblity
 
 ## Add search feature to main page
-- [ ] implement search 
-- [ ] test search function
-- [ ] Accessiblity
+- [x] implement search 
+- [x] test search function
+- [x] Accessiblity
 
 ## Implement pagination
 - [ ] implement pagination
