@@ -2,13 +2,23 @@ import CardList from "@/components/CardList";
 import LoadingIndicator from "@/components/LoadingIndicator";
 import type { NextPage } from "next";
 import Head from "next/head";
+import { useState } from "react";
+import { useDebounce } from "use-debounce";
 import { trpc } from "../utils/trpc";
 
 const Home: NextPage = () => {
-  const { data, isLoading, isSuccess } = trpc.useQuery(["search.cards-search"]);
+  const [search, setSearch] = useState("");
+  const [searchValue] = useDebounce(search, 500);
+  const { data, isLoading, isSuccess } = trpc.useQuery(
+    ["search.cards-search", { search: searchValue }],
+    { keepPreviousData: true }
+  );
 
   const isLoadingOrError = isLoading || !isSuccess;
 
+  const onSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearch(e.target.value);
+  };
   return (
     <>
       <Head>
@@ -33,6 +43,8 @@ const Home: NextPage = () => {
                     className=" rounded-3xl p-4 border-solid  bg-slate-600 w-full h-11 outline-none border-2 border-gray-300 font-bold placeholder:text-white placeholder:text-lg placeholder:font-bold"
                     placeholder="Search for cards..."
                     aria-label="Search for cards..."
+                    value={search}
+                    onChange={onSearch}
                   />
                   <svg
                     fill="none"
