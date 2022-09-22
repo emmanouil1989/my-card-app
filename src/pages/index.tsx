@@ -1,4 +1,4 @@
-import Card from "@/components/CardList";
+import CardList from "@/components/CardList";
 import LoadingIndicator from "@/components/LoadingIndicator";
 import type { NextPage } from "next";
 import Head from "next/head";
@@ -17,20 +17,18 @@ const Home: NextPage = () => {
       </Head>
       <>
         <div
-          className={`flex flex-col justify-center ${
-            isLoadingOrError ? "h-full" : ""
-          }  w-full  items-center `}
+          className={`flex flex-col justify-center h-full  w-full  items-center relative`}
         >
           {isLoadingOrError ? (
             <LoadingIndicator />
           ) : (
-            <div>
-              <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center py-8 w-full">
+            <>
+              <div className="flex flex-col lg:flex-row justify-between items-start sm:items-center py-8 sm:w-6/12 w-[19rem]">
                 <div className="flex items-center h-10 sm:w-4/12 justify-center">
                   <h2 className="font-mono text-5xl font-bold">CardPool</h2>
                 </div>
 
-                <div className="sm:w-8/12 w-[19rem] h-10 relative py-4 sm:py-0 ">
+                <div className=" w-full h-10 relative py-4 sm:py-0 ">
                   <input
                     className=" rounded-3xl p-4 border-solid  bg-slate-600 w-full h-11 outline-none border-2 border-gray-300 font-bold placeholder:text-white placeholder:text-lg placeholder:font-bold"
                     placeholder="Search for cards..."
@@ -51,8 +49,8 @@ const Home: NextPage = () => {
                   </svg>
                 </div>
               </div>
-              <Card data={data!.cards} />
-            </div>
+              <CardList data={data!.cards} />
+            </>
           )}
         </div>
       </>
