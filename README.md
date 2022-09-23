@@ -39,7 +39,7 @@ To run this project locally you will need a MySql database. I use planetscale fr
 - [x] Accessiblity
 
 ## Implement pagination
-- [ ] implement pagination
+- [x] implement pagination
 
 
 ## Possibly move card details page into a modal.
