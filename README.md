@@ -41,7 +41,7 @@ To run this project locally you will need a MySql database. I use planetscale fr
 ## Implement pagination
 - [x] implement pagination
 - [x] fix search/pagination combo bug and styles on mobile
-- [ ] no results pagination bar bug
+- [x] no results pagination bar bug
 
 
 ## Possibly move card details page into a modal.

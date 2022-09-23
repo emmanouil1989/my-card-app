@@ -11,7 +11,7 @@ import { trpc } from "../utils/trpc";
 const Home: NextPage = () => {
   const [search, setSearch] = useState("");
   const [searchValue] = useDebounce(search, 500);
-  const {page, limit, onPaginationChange} = usePagination();
+  const { page, limit, onPaginationChange } = usePagination();
   const { data, isLoading, isSuccess } = trpc.useQuery(
     ["search.cards-search", { search: searchValue, page, limit }],
     { keepPreviousData: true }

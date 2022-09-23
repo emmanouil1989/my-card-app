@@ -1,5 +1,5 @@
 import React from "react";
-import { v4  } from 'uuid';
+import { v4 } from "uuid";
 
 export type PaginationRangeProps = {
   page: number;
@@ -15,7 +15,7 @@ export default function PaginationRange({
 }: PaginationRangeProps) {
   const totalPages = Math.ceil(totalCount / limit);
   const rangeArray = usePagiantionRange(page, totalPages);
-  if (rangeArray === undefined || rangeArray.length === 0) {
+  if (rangeArray === undefined || rangeArray.length === 0 || totalCount === 0) {
     return null;
   }
   return (
