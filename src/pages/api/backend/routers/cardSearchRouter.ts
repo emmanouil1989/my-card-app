@@ -13,7 +13,13 @@ const cardsSearchRouter = createRouter().query("cards-search", {
     const { search, page, limit } = input;
 
     const [totalResults, cards] = await prisma.$transaction([
-      prisma.card.count(),
+      prisma.card.count({
+        where: {
+          title: {
+            contains: search,
+          },
+        },
+      }),
       prisma.card.findMany({
         take: limit,
         skip: page === 1 ? 0 : (page - 1) * limit,
