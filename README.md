@@ -44,6 +44,11 @@ To run this project locally you will need a MySql database. I use planetscale fr
 - [x] no results pagination bar bug
 
 
+## Add playwright testing library
+
+- [ ] set up playright
+
+
 ## Possibly move card details page into a modal.
      
 First, run the development server:
