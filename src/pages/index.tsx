@@ -1,5 +1,7 @@
 import CardList from "@/components/CardList";
 import LoadingIndicator from "@/components/LoadingIndicator";
+import PaginationRange from "@/components/PaginationRange";
+import { usePagination } from "@/utils/misc";
 import type { NextPage } from "next";
 import Head from "next/head";
 import { useState } from "react";
@@ -9,8 +11,9 @@ import { trpc } from "../utils/trpc";
 const Home: NextPage = () => {
   const [search, setSearch] = useState("");
   const [searchValue] = useDebounce(search, 500);
+  const {page, limit, onPaginationChange} = usePagination();
   const { data, isLoading, isSuccess } = trpc.useQuery(
-    ["search.cards-search", { search: searchValue }],
+    ["search.cards-search", { search: searchValue, page, limit }],
     { keepPreviousData: true }
   );
 
@@ -61,7 +64,8 @@ const Home: NextPage = () => {
                   </svg>
                 </div>
               </div>
-              <CardList data={data!.cards} />
+              <CardList data={data!.results} />
+              <PaginationRange page={page} limit={limit} totalCount={data!.totalResults} onChange={onPaginationChange}/>
             </>
           )}
         </div>
