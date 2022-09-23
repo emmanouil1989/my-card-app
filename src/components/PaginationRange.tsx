@@ -21,7 +21,7 @@ export default function PaginationRange({
   return (
     <ul className="flex justify-center items-center p-6 text-xl md:text-2xl">
       {page > 1 && (
-        <li className="mx-2 flex justify-center items-center">
+        <li className="md:mx-2 flex justify-center items-center">
           <button
             className={"w-full h-full"}
             onClick={() => onChange(page - 1, limit)}
@@ -48,14 +48,14 @@ export default function PaginationRange({
 
         if (typeof pageNumber === "string") {
           return (
-            <li key={key} className="mx-2">
+            <li key={key} className="md:mx-2 mx-1">
               ...
             </li>
           );
         } else {
           const isSelected = pageNumber === page;
           return (
-            <li key={key} className={`mx-2 `}>
+            <li key={key} className={`md:mx-2 mx-1`}>
               <button
                 className={`${
                   isSelected &&
@@ -70,7 +70,7 @@ export default function PaginationRange({
         }
       })}
       {page < totalPages && (
-        <li className="mx-2 flex justify-center items-center">
+        <li className="md:mx-2 flex justify-center items-center">
           <button onClick={() => onChange(page + 1, limit)}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
