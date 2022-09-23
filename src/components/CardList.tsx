@@ -14,7 +14,7 @@ export default function CardList({ data }: CardListProps) {
 
 
   return (
-    <div className="flex h-4/5 pr-4">
+    <div className="flex h-4/5 md:pr-4">
       {data.length === 0 ? (
           <div className="h-full w-full flex justify-center align-middle">
             <h1 className="text-2xl font-bold text-center">No cards found</h1>
