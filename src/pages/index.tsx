@@ -11,7 +11,7 @@ import { trpc } from "../utils/trpc";
 const Home: NextPage = () => {
   const [search, setSearch] = useState("");
   const [searchValue] = useDebounce(search, 500);
-  const { page, limit, onPaginationChange } = usePagination();
+  const { page, limit, onPaginationChange, resetPagination } = usePagination();
   const { data, isLoading, isSuccess } = trpc.useQuery(
     ["search.cards-search", { search: searchValue, page, limit }],
     { keepPreviousData: true }
@@ -20,6 +20,7 @@ const Home: NextPage = () => {
   const isLoadingOrError = isLoading || !isSuccess;
 
   const onSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    resetPagination();
     setSearch(e.target.value);
   };
   return (
@@ -65,7 +66,12 @@ const Home: NextPage = () => {
                 </div>
               </div>
               <CardList data={data!.results} />
-              <PaginationRange page={page} limit={limit} totalCount={data!.totalResults} onChange={onPaginationChange}/>
+              <PaginationRange
+                page={page}
+                limit={limit}
+                totalCount={data!.totalResults}
+                onChange={onPaginationChange}
+              />
             </>
           )}
         </div>
