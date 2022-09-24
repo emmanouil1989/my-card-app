@@ -27,7 +27,7 @@ export default function CardList({ data }: CardListProps) {
               <div className=" h-full w-full relative shadow-lg shadow-yellow-100 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 aspect-w-1 aspect-h-1 overflow-hidden rounded-lg  xl:aspect-w-7 xl:aspect-h-8">
                 <button className="relative h-full w-full">
                   <Image
-                    priority
+                    priority={true}
                     src={imageLink}
                     alt={title}
                     layout="fill"
