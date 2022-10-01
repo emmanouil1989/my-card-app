@@ -1,38 +1,38 @@
-name: ci
+# name: ci
 
-on: [push]
+# on: [push]
 
 
-jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Setup Node.js
-        uses: actions/setup-node@v1
-        with:
-          node-version: "16"
+# jobs:
+#   test:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v2
+#       - name: Setup Node.js
+#         uses: actions/setup-node@v1
+#         with:
+#           node-version: "16"
 
-      # Speed up subsequent runs with caching
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
+#       # Speed up subsequent runs with caching
+#       - name: Get yarn cache directory path
+#         id: yarn-cache-dir-path
+#         run: echo "::set-output name=dir::$(yarn cache dir)"
 
-      - uses: actions/cache@v3
-        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-           ${{ runner.os }}-yarn-
+#       - uses: actions/cache@v3
+#         id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+#         with:
+#           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+#           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+#           restore-keys: |
+#            ${{ runner.os }}-yarn-
 
-      # Install required deps for action
-      - name: Install Dependencies
-        run: npm install
+#       # Install required deps for action
+#       - name: Install Dependencies
+#         run: npm install
 
-      # Finally, run our tests
-      - name: Run the tests
-        run: npm test
+#       # Finally, run our tests
+#       - name: Run the tests
+#         run: npm test
 #   wait_for_vercel:
 #     name: Wait for vercel
 #     runs-on: ubuntu-latest
