@@ -6,6 +6,7 @@ This project use Mock card posts data. Tech stack:
 * pa11y-ci for accessability checks
 * Jest
 * React Testing Library
+* Playwright for e2e
 * Configured Github Actions
 
 To run this project locally you will need a MySql database. I use planetscale free service for this. To feed your database with mock card-post data run `npm run seed` command.
