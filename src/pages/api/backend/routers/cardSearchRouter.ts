@@ -21,6 +21,11 @@ const cardsSearchRouter = createRouter().query("cards-search", {
         },
       }),
       prisma.card.findMany({
+        orderBy: [
+          {
+            title: 'desc',
+          },
+        ],
         take: limit,
         skip: page === 1 ? 0 : (page - 1) * limit,
         where: {
