@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 test('test card details page', async ({ page, baseURL }) => {
 
   // Go to http://localhost:3000/
-  await page.goto(baseURL);
+  await page.goto(baseURL!);
 
   // Click li:nth-child(2) > div > .relative
   await page.locator('li:nth-child(2) > div > .relative').click();
