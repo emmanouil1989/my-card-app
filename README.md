@@ -46,7 +46,8 @@ To run this project locally you will need a MySql database. I use planetscale fr
 
 ## Add playwright testing library
 
-- [ ] set up playright
+- [x] set up playwright
+- [ ] add more playwright tests
 
 
 ## Possibly move card details page into a modal.
