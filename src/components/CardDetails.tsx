@@ -3,7 +3,7 @@ import React, { useEffect, useMemo } from "react";
 import { trpc } from "../utils/trpc";
 import Image from "next/image";
 import LoadingIndicator from "./LoadingIndicator";
-
+import sanitizeHtml from "sanitize-html";
 export default function CardDetails() {
   const router = useRouter();
   const cardId = router.query["card-id"] as string;
@@ -77,9 +77,8 @@ const DescriptionMobile = ({ description }: DescriptionMobileScreens) => {
           showMore ? "" : "line-clamp-3"
         } text-[#b8c1ec]`}
         ref={ref}
-      >
-        {description.replace(/(<([^>]+)>)/gi, "")}
-      </p>
+        dangerouslySetInnerHTML={{ __html: sanitizeHtml(description) }}
+      />
       {isClamped && showMoreText}
     </div>
   );
@@ -99,9 +98,10 @@ const useElementClamped = (ref: React.RefObject<HTMLElement>) => {
 const Description = ({ description }: DescriptionMobileScreens) => {
   return (
     <div className="hidden sm:flex max-h-96 overflow-x-hidden overflow-auto">
-      <p className={`text-lg  text-[#b8c1ec]`}>
-        {description.replace(/(<([^>]+)>)/gi, "")}
-      </p>
+      <p
+        className={`text-lg  text-[#b8c1ec]`}
+        dangerouslySetInnerHTML={{ __html: sanitizeHtml(description) }}
+      />
     </div>
   );
 };
