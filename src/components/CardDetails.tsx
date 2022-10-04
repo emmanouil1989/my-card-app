@@ -73,7 +73,9 @@ const DescriptionMobile = ({ description }: DescriptionMobileScreens) => {
   return (
     <div className="sm:hidden flex flex-col">
       <p
-        className={`text-lg leading-tight ${showMore ? "" : "line-clamp-3"}`}
+        className={`text-lg leading-tight ${
+          showMore ? "" : "line-clamp-3"
+        } text-[#b8c1ec]`}
         ref={ref}
       >
         {description.replace(/(<([^>]+)>)/gi, "")}
@@ -96,8 +98,8 @@ const useElementClamped = (ref: React.RefObject<HTMLElement>) => {
 
 const Description = ({ description }: DescriptionMobileScreens) => {
   return (
-    <div className="hidden sm:flex">
-      <p className={`text-lg leading-tight`}>
+    <div className="hidden sm:flex max-h-96 overflow-x-hidden overflow-auto">
+      <p className={`text-lg  text-[#b8c1ec]`}>
         {description.replace(/(<([^>]+)>)/gi, "")}
       </p>
     </div>
