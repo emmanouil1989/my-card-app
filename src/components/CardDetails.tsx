@@ -71,7 +71,7 @@ const DescriptionMobile = ({ description }: DescriptionMobileScreens) => {
   }, [showMore, setShowMore]);
 
   return (
-    <div className={`sm:hidden flex flex-col  ${showMore ? "max-h-56 overflow-auto" : "max-h-36"}`}>
+    <div className={`sm:hidden flex flex-col  ${showMore ? "max-h-56 overflow-auto" : "max-h-24"}`}>
       <p
         className={`text-lg leading-tight  ${
           showMore ? "" : "line-clamp-3"
