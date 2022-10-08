@@ -9,6 +9,25 @@ import {
   getReactQuerySuccessMockAnswer,
 } from "@/test/utils";
 
+beforeEach(async () => {
+  const useRouter = jest.spyOn(require("next/router"), "useRouter");
+
+  useRouter.mockImplementation(() => ({
+    route: "/",
+    pathname: "",
+    query: { limit: "10", page: "1" },
+    asPath: "",
+    push: jest.fn(),
+    replace: jest.fn(),
+    events: {
+      on: jest.fn(),
+      off: jest.fn(),
+    },
+    beforePopState: jest.fn(() => null),
+    prefetch: jest.fn(() => null),
+  }));
+});
+
 test("Load main page", async () => {
   const cards = {
     page: 1,
@@ -98,11 +117,11 @@ test("Test search input", async () => {
   jest
     .spyOn(trpc, "useQuery")
     .mockReturnValue(getReactQuerySuccessMockAnswer({ ...cards }));
-  const component = render(<Home />);
+  render(<Home />);
 
   expect(screen.getByRole("textbox")).toBeInTheDocument();
   await userEvent.type(screen.getByRole("textbox"), "Birthday");
-  await expect(trpc.useQuery).toBeCalledTimes(9);
+   await expect(trpc.useQuery).toBeCalledTimes(9);
 
   expect(screen.getByRole("textbox")).toHaveValue("Birthday");
 });

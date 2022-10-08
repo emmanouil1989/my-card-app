@@ -1,22 +1,23 @@
-import { useState } from "react";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
-export const usePagination = (initialPage?: number, initialLimit?: number) => {
-  const [page, setPage] = useState<number>(initialPage || 1);
-  const [limit, setLimit] = useState<number>(initialLimit || 10);
+export const usePagination = () => {
+  const router = useRouter();
+  const page = Number(router.query.page) || 1;
+  const limit = Number(router.query.limit) || 10;
 
   const onPaginationChange = (page: number, limit: number) => {
-    setPage(page);
-    setLimit(limit);
+    router.replace(`/?page=${page}&limit=${limit}`);
   };
 
   const resetPagination = () => {
-    setPage(initialPage || 1);
-    setLimit(initialLimit || 10);
+    router.replace(`/?page=${1}&limit=${10}`);
   };
+
   return {
     page,
     limit,
     onPaginationChange,
-    resetPagination
+    resetPagination,
   };
 };

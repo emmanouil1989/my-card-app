@@ -4,6 +4,7 @@ import PaginationRange from "@/components/PaginationRange";
 import { usePagination } from "@/utils/misc";
 import type { NextPage } from "next";
 import Head from "next/head";
+import { useRouter } from "next/router";
 import { useState } from "react";
 import { useDebounce } from "use-debounce";
 import { trpc } from "../utils/trpc";
@@ -11,11 +12,13 @@ import { trpc } from "../utils/trpc";
 const Home: NextPage = () => {
   const [search, setSearch] = useState("");
   const [searchValue] = useDebounce(search, 500);
+
   const { page, limit, onPaginationChange, resetPagination } = usePagination();
   const { data, isLoading, isSuccess } = trpc.useQuery(
     ["search.cards-search", { search: searchValue, page, limit }],
     { keepPreviousData: true }
   );
+
 
   const isLoadingOrError = isLoading || !isSuccess;
 

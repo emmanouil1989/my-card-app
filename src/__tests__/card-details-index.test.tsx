@@ -8,6 +8,27 @@ import {
 } from "@/test/utils";
 import "@testing-library/jest-dom";
 
+beforeEach(async () => {
+
+  const useRouter = jest.spyOn(require("next/router"), "useRouter");
+
+  useRouter.mockImplementation(() => ({
+    route: '/',
+    pathname: '',
+    query: {limit: "10",page: "1"},
+    asPath: '',
+    push: jest.fn(),
+    replace: jest.fn(),
+
+    events: {
+      on: jest.fn(),
+      off: jest.fn()
+    },
+    beforePopState: jest.fn(() => null),
+    prefetch: jest.fn(() => null)
+  }))
+});
+
 test("load card details page", async () => {
   const mockData = {
     id: "03a68fb8-4fbb-4684-8766-c21cde1a999a",
