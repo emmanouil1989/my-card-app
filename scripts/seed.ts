@@ -59,10 +59,15 @@ export const fillDB = async () => {
         productId: product.MoonpigProductNo,
         imageLink: product.ProductImage.Link.Href,
       }));
+    console.log("mappedData", mappedData);
     await prisma.card.deleteMany({});
+    const findmany = await prisma.card.findMany({});
+    console.log("findmany", findmany);
     await prisma.card.createMany({
       data: mappedData,
     });
+    const findmany2 = await prisma.card.findMany({});
+    console.log("findmany2", findmany2);
   } catch (e) {
     console.log(e, "error");
   }
