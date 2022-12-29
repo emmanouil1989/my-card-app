@@ -40,7 +40,7 @@ const Home: NextPage = () => {
             <LoadingIndicator />
           ) : (
             <>
-              <div className="flex flex-col lg:flex-row justify-between items-start sm:items-center pt-19 pb-8 sm:w-6/12 w-[19rem]">
+              <div className="flex flex-col lg:flex-row justify-between items-start sm:items-center pt-24 pb-8 sm:w-6/12 w-[19rem]">
                 <div className="flex items-center h-10 sm:w-4/12 justify-center">
                   <h2 className="font-mono text-5xl font-bold">CardPool</h2>
                 </div>
