@@ -33,14 +33,14 @@ const Home: NextPage = () => {
       </Head>
       <>
         <div
-          className={`flex flex-col justify-center h-full  w-full  items-center relative p-16 md:p-0`}
+          className={`flex flex-col justify-center h-full   items-center relative p-16 md:p-0`}
         >
           {isLoadingOrError ? (
             <LoadingIndicator />
           ) : (
             <>
-              <div className="flex flex-col lg:flex-row justify-between items-start sm:items-center pt-4 pb-8 sm:w-6/12 w-[19rem]">
-                <div className="flex items-center h-10 sm:w-4/12 justify-center pr-4">
+              <div className="flex flex-col xl:flex-row justify-between items-start sm:items-center pt-4 pb-8 sm:w-11/12 w-[19rem]">
+                <div className="flex items-center h-10 justify-start pr-4">
                   <h2 className="font-mono text-5xl font-bold">CardPool</h2>
                 </div>
 
