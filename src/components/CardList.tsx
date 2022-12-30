@@ -14,13 +14,13 @@ export default function CardList({ data }: CardListProps) {
 
 
   return (
-    <div className="flex h-4/5 md:pr-4">
+    <div className="flex h-[75%] md:pr-4">
       {data.length === 0 ? (
           <div className="h-full w-full flex justify-center align-middle">
             <h1 className="text-2xl font-bold text-center">No cards found</h1>
           </div>
         ) : (
-      <ul className="grid xl:grid-cols-[300px_300px_300px_300px] lg:grid-cols-[200px_200px_200px] md:grid-cols-[200px_200px] grid-cols-[300px]  xl:auto-rows-[400px] lg:auto-rows-[300px]  md:auto-rows-[300px] auto-rows-[400px] list-inside gap-8  h-full ovrflow-y-auto overflow-x-hidden pr-4">
+      <ul className="grid xl:grid-cols-[300px_300px_300px_300px] lg:grid-cols-[200px_200px_200px] md:grid-cols-[200px_200px] grid-cols-[300px]  xl:auto-rows-[400px] lg:auto-rows-[300px]  md:auto-rows-[300px] auto-rows-[400px] list-inside gap-8  h-full overflow-auto overflow-x-hidden pr-4">
         
           {data.map(({ productId, imageLink, title }) => (
             <li key={productId} className="h-full w-full  flex justify-center">

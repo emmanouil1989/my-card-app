@@ -4,10 +4,9 @@ import PaginationRange from "@/components/PaginationRange";
 import { usePagination } from "@/utils/misc";
 import type { NextPage } from "next";
 import Head from "next/head";
-import { useRouter } from "next/router";
 import { useState } from "react";
 import { useDebounce } from "use-debounce";
-import { trpc } from "../utils/trpc";
+import { trpc } from "@/utils/trpc";
 
 const Home: NextPage = () => {
   const [search, setSearch] = useState("");
@@ -40,14 +39,14 @@ const Home: NextPage = () => {
             <LoadingIndicator />
           ) : (
             <>
-              <div className="flex flex-col lg:flex-row justify-between items-start sm:items-center pt-24 pb-8 sm:w-6/12 w-[19rem]">
-                <div className="flex items-center h-10 sm:w-4/12 justify-center">
+              <div className="flex flex-col lg:flex-row justify-between items-start sm:items-center pt-4 pb-8 sm:w-6/12 w-[19rem]">
+                <div className="flex items-center h-10 sm:w-4/12 justify-center pr-4">
                   <h2 className="font-mono text-5xl font-bold">CardPool</h2>
                 </div>
 
                 <div className=" w-full h-10 relative py-4 sm:py-0 ">
                   <input
-                    className=" rounded-3xl p-4 border-solid  bg-slate-600 w-full h-11 outline-none border-2 border-gray-300 font-bold placeholder:text-white placeholder:text-lg placeholder:font-bold"
+                    className=" rounded-3xl p-4  bg-slate-600 w-full h-11 outline-none border-2 border-gray-300 font-bold placeholder:text-white placeholder:text-lg placeholder:font-bold"
                     placeholder="Search for cards..."
                     aria-label="Search for cards..."
                     value={search}
