@@ -5,24 +5,27 @@
 body {
  @apply text-white bg-gray-800 overflow-y-auto overflow-x-hidden h-full relative p-0 m-0;
 }
-html {
-    @apply h-full box-border relative;
-  }
 
-  #__next {
-    display: flex;
-    flex-direction: column;
-    min-height: 100%;
-    position: relative;
-  }
+html {
+  @apply h-full box-border relative;
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+#__next {
+ display: flex;
+ flex-direction: column;
+ min-height: 100%;
+ position: relative;
+}
 
 
 .text-reverse {
  @apply text-black
 }
 
-html {
-  padding: 0;
-  margin: 0;
-  scroll-behavior: smooth;
-}
