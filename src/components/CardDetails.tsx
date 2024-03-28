@@ -7,10 +7,9 @@ import sanitizeHtml from "sanitize-html";
 export default function CardDetails() {
   const router = useRouter();
   const cardId = router.query["card-id"] as string;
-  const { data, isLoading, isSuccess } = trpc.useQuery([
-    "detail.card-details",
-    { cardId },
-  ]);
+  const { data, isLoading, isSuccess } = trpc.cardDetails[
+    "cardDetails"
+  ].useQuery({ cardId });
 
   const isLoadingOrError = isLoading || !isSuccess;
 
@@ -71,7 +70,11 @@ const DescriptionMobile = ({ description }: DescriptionMobileScreens) => {
   }, [showMore, setShowMore]);
 
   return (
-    <div className={`sm:hidden flex flex-col  ${showMore ? "max-h-56 overflow-auto" : "max-h-24"}`}>
+    <div
+      className={`sm:hidden flex flex-col  ${
+        showMore ? "max-h-56 overflow-auto" : "max-h-24"
+      }`}
+    >
       <p
         className={`text-lg leading-tight  ${
           showMore ? "" : "line-clamp-3"

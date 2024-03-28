@@ -7,17 +7,18 @@ import Head from "next/head";
 import { useState } from "react";
 import { useDebounce } from "use-debounce";
 import { trpc } from "@/utils/trpc";
+import { keepPreviousData } from "@tanstack/react-query";
 
 const Home: NextPage = () => {
   const [search, setSearch] = useState("");
   const [searchValue] = useDebounce(search, 500);
-
   const { page, limit, onPaginationChange, resetPagination } = usePagination();
-  const { data, isLoading, isSuccess } = trpc.useQuery(
-    ["search.cards-search", { search: searchValue, page, limit }],
-    { keepPreviousData: true }
+  const { data, isLoading, isSuccess } = trpc.cardSearch.search.useQuery(
+    { search: searchValue, page, limit },
+    {
+      placeholderData: keepPreviousData,
+    }
   );
-
 
   const isLoadingOrError = isLoading || !isSuccess;
 

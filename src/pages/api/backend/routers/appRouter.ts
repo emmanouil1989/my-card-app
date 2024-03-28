@@ -1,14 +1,10 @@
+import { router } from "../context";
+import { cardDetailsRouter } from "./cardDetails";
+import cardSearchRouter from "./cardSearch";
 
-import { cardDetailsRouter } from './cardDetailsRouter';
-import { createRouter } from "../context";
-import cardSearchRouter from './cardSearchRouter';
-
-
-export const appRouter = createRouter()
-  .merge('detail.', cardDetailsRouter)
-  .merge('search.', cardSearchRouter);
-  
-// export type definition of API
-
+export const appRouter = router({
+  cardSearch: cardSearchRouter,
+  cardDetails: cardDetailsRouter,
+});
 
 export type AppRouter = typeof appRouter;
